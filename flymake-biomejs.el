@@ -3,10 +3,11 @@
 ;; Copyright (C) 2026 Lina Bhaile <emacs-devel@linabee.uk>
 
 ;; Author: Lina Bhaile <emacs-devel@linabee.uk>
-;; Version: 1.0.0
+;; Version: 1.0.1
 ;; URL: https://github.com/lina-bh/flymake-biomejs
 ;; Package-Requires: ((emacs "30.1"))
 ;; Keywords: tools, languages
+;; Assisted-by: Claude:claude-fable-5-1
 
 ;; This program is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
