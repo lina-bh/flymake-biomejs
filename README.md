@@ -1,13 +1,26 @@
 # flymake-biomejs
 
-Flymake backend for linting with [Biome](https://biomejs.dev/), the
-"toolchain of the web".
+Flymake backend for linting with [Biome](https://biomejs.dev/), the "toolchain
+of the web".
 
 Unlike <https://github.com/erickgnavar/flymake-biome>, this backend uses the
-"experimental" JSON reporter, and has a different method of initialising to
-cope with the matrix of JavaScript package managers and projects which may or
-may not use Biome. Care has been taken to minimise the latency of parsing and
-reporting diagnostics.
+"experimental" JSON reporter, and has a different method of initialising to cope
+with the matrix of JavaScript package managers and projects which may or may not
+use Biome. Care has been taken to minimise the latency of parsing and reporting
+diagnostics.
+
+## Install
+
+`flymake-biomejs` is not eligible to be added to MELPA until the 20th of
+October, for the easiest path to install this package, use `package-vc` in Emacs
+\>= 30:
+
+```lisp
+(use-package flymake-biomejs
+  :vc "https://github.com/lina-bh/flymake-biomejs.git")
+;; without use-package:
+(package-vc-install "https://github.com/lina-bh/flymake-biomejs.git")
+```
 
 ## Usage
 
@@ -23,7 +36,8 @@ add something like this to your init file:
   :hook (typescript-ts-mode . flymake-biomejs-turn-on))
 ```
 
-Then in your project, set the correct variables in `.dir-locals.el` or `.dir-locals-2.el`:
+Then in your project, set the correct variables in `.dir-locals.el` or
+`.dir-locals-2.el`:
 
 ```lisp
 ;;; Directory Local Variables            -*- no-byte-compile: t -*-
@@ -50,13 +64,13 @@ Then in your project, set the correct variables in `.dir-locals.el` or `.dir-loc
 
 Claude Fable 5.1 was used to discuss approaches, find bugs and measure
 performance during development, but was *not* permitted to generate code. I
-affirm that all Lisp in <flymake-biomejs.el> was entered by hand. I'm in no
-position to say whether this makes the code 'generated', strictly speaking, or a
-derived work of the training data of the model.
+affirm that all Lisp was entered by hand. I'm in no position to say whether this
+makes the code 'generated', strictly speaking, or a derived work of the training
+data of the model.
 
 ## Licence
 
-Copyright (C) 2026 Lina Bhaile <emacs-devel@linabee.uk>
+Copyright (C) 2026 Lina Bhaile \<emacs-devel@linabee.uk\>
 
 This program is free software: you can redistribute it and/or modify it under
 the terms of the GNU General Public License as published by the Free Software
