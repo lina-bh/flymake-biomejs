@@ -3,7 +3,7 @@
 ;; Copyright (C) 2026 Lina Bhaile <emacs-devel@linabee.uk>
 
 ;; Author: Lina Bhaile <emacs-devel@linabee.uk>
-;; Version: 1.0.1
+;; Version: 1.1.0
 ;; URL: https://github.com/lina-bh/flymake-biomejs
 ;; Package-Requires: ((emacs "30.1"))
 ;; Keywords: tools, languages
@@ -39,6 +39,7 @@
   (require 'cl-lib)
   (require 'subr-x))
 
+;;;###autoload
 (defun flymake-biomejs-program-safe-p (program)
   "Is PROGRAM going to run Biome?"
   (or (equal program '("biome"))
@@ -46,6 +47,7 @@
        (member (car program) '("npx" "pnpx" "bunx" "yarn"))
        (member (car (last program)) '("biome" "@biomejs/biome")))))
 
+;;;###autoload
 (defcustom flymake-biomejs-program '("biome")
   "Biome command.
 You can change this to use a command runner; for example, to use npx, set
@@ -54,6 +56,7 @@ You can change this to use a command runner; for example, to use npx, set
   :type '(repeat string)
   :safe #'flymake-biomejs-program-safe-p)
 
+;;;###autoload
 (defcustom flymake-biomejs-enabled nil
   "Whether `flymake-biomejs-turn-on' enables `flymake-biomejs' in this buffer.
 This is intended to be used as a directory-local variable, so that you may add
@@ -152,6 +155,7 @@ Call REPORT-FN with diagnostics, and clean up stdout and STDERR."
       (delete-process stderr)
       (kill-buffer (process-buffer proc)))))
 
+;;;###autoload
 (defun flymake-biomejs (report-fn &rest _args)
   "Flymake backend for Biome.  Call Biome and then call REPORT-FN with result."
   (let* ((buffer (current-buffer))
